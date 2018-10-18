@@ -6,3 +6,5 @@
 Add-Migration InitialCreate
 Update-Database 
 ```
+**If you get an error stating The term 'add-migration' 
+is not recognized as the name of a cmdlet, close and reopen Visual Studio.**

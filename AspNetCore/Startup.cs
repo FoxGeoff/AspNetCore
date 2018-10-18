@@ -31,6 +31,7 @@ namespace AspNetCore
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            // Added: Services (such as BloggingContext) are registered with dependency injection during application startup.  
             var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<BloggingContext>
                 (options => options.UseSqlServer(connection));
