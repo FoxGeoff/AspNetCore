@@ -11,6 +11,23 @@ namespace AspNetCore.Models
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            /* Not implimented yet due to framework bug
+            modelBuilder.Entity<Blog>().HasData(
+                new Blog { BlogId = 1, Url = "http://sample1.com" },
+                new Blog { BlogId = 2, Url = "http://sample2.com" });
+
+            modelBuilder.Entity<Post>().HasData(
+                new { BlogId = 1, PostId = 1, Title = "First post", Content = "Test 1" },
+                new { BlogId = 1, PostId = 2, Title = "Second post", Content = "Test 2" },
+                new { BlogId = 2, PostId = 1, Title = "2nd Blog - First post", Content = "Test 1" },
+                new { BlogId = 2, PostId = 2, Title = "2nd Blog - Second post", Content = "Test 2" });
+             */
+        }
     }
 
     public class Blog

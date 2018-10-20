@@ -28,6 +28,8 @@ namespace AspNetCore
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //Added: Service Data Seeder
+            services.AddTransient<DataSeeder>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -58,6 +60,13 @@ namespace AspNetCore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+
+                DataSeeder.InitializeData(app.ApplicationServices);
+            }
 
             app.UseMvc();
         }
