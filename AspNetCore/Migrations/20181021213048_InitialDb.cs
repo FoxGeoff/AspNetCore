@@ -11,8 +11,7 @@ namespace AspNetCore.Migrations
                 name: "Blogs",
                 columns: table => new
                 {
-                    BlogId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    BlogId = table.Column<int>(nullable: false),
                     Url = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

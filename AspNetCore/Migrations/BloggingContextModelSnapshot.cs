@@ -20,9 +20,7 @@ namespace AspNetCore.Migrations
 
             modelBuilder.Entity("AspNetCore.Models.Blog", b =>
                 {
-                    b.Property<int>("BlogId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("BlogId");
 
                     b.Property<string>("Url");
 

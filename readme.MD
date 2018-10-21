@@ -49,7 +49,20 @@ public class BloggingContext : DbContext
 ## ERROR: Microsoft.EntityFrameworkCore.DbUpdateException
 * SqlException: Cannot insert explicit value for identity column in table 'Blogs' when IDENTITY_INSERT is set to OFF.
 ## FIX:
-* ```
-I have run into this before. This error means you are trying to assign a value explicitly to a column where the database automatically assigns it.
-Suggestion: Update your edmx file to reflect any changes you may have made in the database. If the database automatically assigns the value, you should see the "IsDbGenerated=true" attribute in your designer file under that property. If it's not there, you can add it manually.
+* ID geneated by database
+``` (was)
+[Key]
+[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+public int ID { get; set; }
+```
+* If you do not want an ID to be database generated, then you should use the DatabaseGenerated attribute on your model, as in
+``` (is)
+public class Blog
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int BlogId { get; set; }
+        public string Url { get; set; }
+
+        public ICollection<Post> Posts { get; set; }
+    }
 ```

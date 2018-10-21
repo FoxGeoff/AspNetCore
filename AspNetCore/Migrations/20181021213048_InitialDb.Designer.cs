@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspNetCore.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    [Migration("20181018221620_InitialDb")]
+    [Migration("20181021213048_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,9 +22,7 @@ namespace AspNetCore.Migrations
 
             modelBuilder.Entity("AspNetCore.Models.Blog", b =>
                 {
-                    b.Property<int>("BlogId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("BlogId");
 
                     b.Property<string>("Url");
 
