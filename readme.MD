@@ -48,7 +48,7 @@ public class BloggingContext : DbContext
 ```
 ## ERROR: Microsoft.EntityFrameworkCore.DbUpdateException
 * SqlException: Cannot insert explicit value for identity column in table 'Blogs' when IDENTITY_INSERT is set to OFF.
-## FIX:
+## FIX: Ref: https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties
 * ID geneated by database
 ``` (was)
 [Key]
